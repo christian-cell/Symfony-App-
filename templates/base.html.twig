@@ -1,19 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        {# estilos de bootstrap #}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-        crossorigin="anonymous">
-    </head>
-    <body>
 
-        {% block body %}<h1>Pagina de productos</h1>{% endblock %}
+<head>
 
-        {# {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %} #}
-    </body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}Welcome!{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    {% block stylesheets %}{% endblock %} </head>
+
+<body>
+  <div class="wrapper">
+    <div class="container-fluid">
+      <header class="header">
+        <img src="assets/img/logo.svg" alt="Maleteo">
+      </header>
+      <nav style="width:400px;margin-bottom:30px;margin-left:1000px"
+        class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="http://localhost:8000/maleteo">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" href="http://localhost:8000/opiniones">Opiniones<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="http://localhost:8000/solicitudes">Solicitudes</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- EN EL SIGUIENTE COMENTARIO SE ENCUENTRA LA CONSULTA A LA BASE DE DATOS  -->
+  {% block body %}{% endblock %}
+  {% block javascripts %}{% endblock %}
+  <footer class="footer">
+    <div class="wrapper">
+      <div class="container-fluid">
+        <img src="assets/img/logo.svg" alt="Maleteo" class="footer__logo">
+        <p class="footer__claim">
+          Hecho con ❤️en Madrid
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>

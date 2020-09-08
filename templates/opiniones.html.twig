@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">Opiniones de nuestros guardianes</div>
+                <div class="card-body">
+                    <form action="{{ path('newRate') }}" method="POST" >
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" name="nombre"
+                            class="form-control" id="inputName">
+                        </div>
+                        <div class="form-group">
+                            <label for="opinion">Opinion</label>
+                            <textarea name="opinion" id="inputOpinion" cols="" rows="3"
+                            class="form-control" value="Opinion" ></textarea>
+                        </div>
+                        <input type="submit"
+                        onClick="{{ path('newRate') }}"
+                        class="the-form__btn btn btn-lg btn-primary"
+                        value="Enviar">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <table class="table table-borderless  table table-striped  " >
+                <thead class="thead-dark" >
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Editar</th>
+                        <th>Borrar</th>
+                    </tr>
+                </thead>
+                {% for opinion in opinion %}
+                <tbody>
+                    <tr>
+                        <td> {{opinion.nombre}} </td>
+                        <td>{{opinion.opinion}}</td>
+                        <td><a href="" class="btn btn-ligth btn-sm " > <span class="fas fa-marker"></span> </a></td>
+                        <td> <a href="" class="btn btn-danger btn-sm " > <span class="fas fa-trash-alt btn btn-danger "></span> </a> </td>                       
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

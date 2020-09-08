@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}  
+
+{% block body %}
+<h2 style="width:500px;margin-left:260px; text-align:center;" >Solicitudes Recibidas...</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped" >
+                <thead class="thead-dark" >
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Ciudad</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
+                  </tr>
+                </thead>
+                {% for solicitud in solicitud %}
+                <tbody>
+                    <tr>
+                        <td>{{solicitud.nombre}}</td>
+                        <td>{{solicitud.email}}</td>
+                        <td>{{solicitud.ciudad}}</td>
+                        <td>
+                          <a href="" class="btn btn-ligth btn-sm " > <span class="fas fa-marker"></span> </a>
+                        </td>
+                        <td> <a href="" class="btn btn-danger btn-sm " > <span class="fas fa-trash-alt btn btn-danger "></span> </a> </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+              </table>
+        </div>
+    </div>
+</div>
+    
+
+
+{% endblock %}
